@@ -10,7 +10,7 @@ const setCookieifNotExists = (cname, cvalue, exdays) =>
 
     if (!currentCookies) {
 
-        jscookie.set('cname', 'cvalue', { expires: 1/96, domain: 'upo.cl' })
+        jscookie.set(cname, cvalue , { expires: 1/48, domain: 'upo.cl' })
         console.log("currentCookies Set New ", currentCookies)
     }
 }
