@@ -53,9 +53,12 @@
         </ul>
       </div>
       <div :class="[open ? 'flex' : 'hidden lg:flex']" class="space-x-3">
-        <base-button class="px-8 xl:px-10 py-3 mt-2 bg-inherit text-gradient border border-[#0c66ee]">
-          Login
-        </base-button>
+        <a href="/posts">
+          <base-button class="px-8 xl:px-10 py-3 mt-2 bg-inherit text-gradient border border-[#0c66ee]">
+            Login
+          </base-button>
+        </a>
+
         <base-button class="px-8 xl:px-10 py-3 mt-2 bg-gradient-to-r from-[#468ef9] to-[#0c66ee] text-white">
           Sign Up
         </base-button>
@@ -63,7 +66,12 @@
     </div>
   </nav>
 </template>
+
 <script>
+
+import cryptoutils from '../../utils/crypto'
+import coockiestils from '../../utils/simplecookies'
+
 export default {
   name: 'BaseNavbar',
   data() {
@@ -72,10 +80,31 @@ export default {
       dropdownNavbar: false,
     }
   },
+  mounted() {
+    
+    const unique = cryptoutils.makeid(64)
+    coockiestils.setCookieifNotExists('sessionuikey',unique,1)
+    console.log('mounted',unique)
+  },
   methods: {
-    dropdownToggler () {
+    dropdownToggler() {
       this.dropdownNavbar = !this.dropdownNavbar
-    }
-  }
+    },
+  } 
+  
 }
 </script>
+<!-- created: function(){
+  document.addEventListener('touchstart',this.touchStart);
+}, 
+destroyed: function() { 
+  document.removeEventListener('touchstart', this.touchStart); 
+}
+Now you can use touch touchStart method inside Vue methods.
+
+methods:{
+touchStart(e){
+  this.touched=true;
+}
+
+} -->

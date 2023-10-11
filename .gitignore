@@ -88,3 +88,7 @@ sw.*
 
 # Vim swap files
 *.swp
+.yarnrc.yml
+package-lock.json
+yarn.lock
+.yarn/install-state.gz
