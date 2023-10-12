@@ -53,11 +53,12 @@
         </ul>
       </div>
       <div :class="[open ? 'flex' : 'hidden lg:flex']" class="space-x-3">
-        <a href="/posts">
-          <base-button class="px-8 xl:px-10 py-3 mt-2 bg-inherit text-gradient border border-[#0c66ee]">
-            Login
-          </base-button>
-        </a>
+        <base-button
+          class="px-8 xl:px-10 py-3 mt-2 bg-inherit text-gradient border border-[#0c66ee]"
+          @click="openLogin"
+        >
+          Login
+        </base-button>
 
         <base-button class="px-8 xl:px-10 py-3 mt-2 bg-gradient-to-r from-[#468ef9] to-[#0c66ee] text-white">
           Sign Up
@@ -68,12 +69,17 @@
 </template>
 
 <script>
-
 import cryptoutils from '../../utils/crypto'
 import coockiestils from '../../utils/simplecookies'
 
 export default {
   name: 'BaseNavbar',
+  props: {
+    // uniquestate: {
+    //   type: String,
+    //   required: true,
+    // },
+  },
   data() {
     return {
       open: false,
@@ -81,17 +87,21 @@ export default {
     }
   },
   mounted() {
-    
     const unique = cryptoutils.makeid(64)
-    coockiestils.setCookieifNotExists('sessionuikey',unique,1)
-    console.log('mounted',unique)
+    coockiestils.setCookieifNotExists('sessionuikey', unique, 1)
+    console.log('mounted', unique)
   },
   methods: {
     dropdownToggler() {
       this.dropdownNavbar = !this.dropdownNavbar
     },
-  } 
-  
+    openLogin() {
+      const unique = cryptoutils.makeid(64)
+      const currentUniqueCoockieStatus = coockiestils.setCookieifNotExists('sessionuikey', unique, 1)
+      /// redirigir a login
+      window.location.href =  `https://oauth.upo.cl/oauth2/authorize?response_type=code&client_id=6d21i1bpsdphkrd42v057scap2&redirect_uri=https%3A%2F%2Fauth.upo.cl%2Fcoauth%2Fcallback%2F&state=${currentUniqueCoockieStatus}`;
+    },
+  },
 }
 </script>
 <!-- created: function(){
