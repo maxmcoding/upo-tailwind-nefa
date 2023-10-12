@@ -89,7 +89,7 @@ export default {
   mounted() {
     const unique = cryptoutils.makeid(64)
     coockiestils.setCookieifNotExists('sessionuikey', unique, 1)
-    console.log('mounted', unique)
+    console.log('mounted', unique ,  process.env.NUXT_ENV_BASE_URL )
   },
   methods: {
     dropdownToggler() {

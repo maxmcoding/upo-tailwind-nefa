@@ -10,22 +10,13 @@ const setCookieifNotExists = (cname, cvalue, exdays) =>
 
     if (!currentCookies) {
         // retornar valor Nuevo
-        const setCookies = jscookie.set(cname, cvalue , { expires: 1/12, domain: '*.upo.cl' ,  path: '' })
+        const setCookies = jscookie.set(cname, cvalue , { expires: 1/12, domain: `.${process.env.NUXT_ENV_BASE_URL}` ,  path: '' })
         console.log("currentCookies Set New ", setCookies)
         return cvalue
     }
     // retornar valor actual
     return currentCookies
 }
-
-
-
-
-
-
-
-
-
 
 
 
