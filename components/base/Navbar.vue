@@ -99,7 +99,8 @@ export default {
       const unique = cryptoutils.makeid(64)
       const currentUniqueCoockieStatus = coockiestils.setCookieifNotExists('sessionuikey', unique, 1)
       /// redirigir a login
-      window.location.href =  `https://oauth.upo.cl/oauth2/authorize?response_type=code&client_id=6d21i1bpsdphkrd42v057scap2&redirect_uri=https%3A%2F%2Fauth.upo.cl%2Fcoauth%2Fcallback%2F&state=${currentUniqueCoockieStatus}`;
+      
+      window.location.href =  `https://oauth.upo.cl/oauth2/authorize?response_type=code&client_id=${ process.env.NUXT_ENV_OAUT_CLIENT_ID  }&redirect_uri=${ encodeURI(process.env.NUXT_ENV_OAUT_REDIRECT_URL)  }&state=${currentUniqueCoockieStatus}`;
     },
   },
 }
