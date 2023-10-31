@@ -6,9 +6,9 @@
       ></div>
       <BaseNavbar />
 
-      <!-- <main class="text-neutral-800">
+      <main class="text-neutral-800">
         <Nuxt />
-      </main> -->
+      </main>
 
       <BaseFooter />
     </div>

@@ -15,7 +15,7 @@
           :class="[open ? 'flex' : 'hidden lg:flex']"
           class="w-full h-auto flex flex-col flex-grow lg:items-center pb-4 lg:pb-0 lg:justify-end lg:flex-row origin-top duration-300 xl:space-x-2 space-y-3 lg:space-y-0"
         >
-          <NavLink name="Cryptocurrency" url="#" />
+          <NavLink name="Bots" url="#" />
           <NavLink name="Exchanges" url="#" />
           <NavLink name="Watchlist" url="#" />
           <NavLink name="NFT" url="#" />

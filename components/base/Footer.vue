@@ -11,11 +11,11 @@
             </a>
           </div>
           <ul class="space-y-4">
-            <NavLink name="Cryptocurrency" url="#" />
-            <NavLink name="Exchanges" url="#" />
-            <NavLink name="Watchlist" url="#" />
+            <NavLink name="Bots" url="#" />
+            <NavLink name="Asistances" url="#" />
+            <NavLink name="WebHooks" url="#" />
             <NavLink name="Portfolio" url="#" />
-            <NavLink name="NFT" url="#" />
+            <NavLink name="IOT" url="#" />
           </ul>
         </div>
         <div
